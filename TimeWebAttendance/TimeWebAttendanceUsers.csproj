@@ -18,8 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Models\Usuario\Service\" />
-    <Folder Include="Models\Usuario\Repositorie\" />
     <Folder Include="Services\" />
     <Folder Include="Utilities\" />
   </ItemGroup>
