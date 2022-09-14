@@ -12,24 +12,22 @@ namespace TimeWebAttendanceUsers.Controllers
     public class UsuarioController : ControllerBase
     {
         private readonly ISUsuario context;
-        private readonly IMapper mapper;
-        public UsuarioController(ISUsuario context, IMapper mapper) 
+        public UsuarioController(ISUsuario context) 
         {
             this.context = context;
-            this.mapper = mapper;
         }
         //GET
         #region
         [HttpGet(Name = "getUsers")]
-        public async Task<ActionResult<List<UsuarioDTO>>> Get()
+        public async Task<ActionResult> Get()
         {
-            return mapper.Map<List<UsuarioDTO>>(await context.GetUser());
+            return Ok(await context.GetUser());
         }
 
         [HttpGet("{id}",Name = "getUser")]
-        public async Task<ActionResult<UsuarioDTO>> Get(int id)
+        public async Task<ActionResult> Get(int id)
         {
-            return mapper.Map<UsuarioDTO>(await context.GetUserById(id));
+            return Ok(await context.GetUserById(id));
         }
         #endregion
         //POST
