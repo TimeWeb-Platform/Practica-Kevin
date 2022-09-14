@@ -11,6 +11,7 @@ namespace TimeWebAttendanceUsers.Entities
         public string ApP { get; set; }
         public string ApM { get; set; }
         public DateTime FechaNacimiento { get; set; }
+        [Range(1,3)]
         public int RazonSocialId { get; set; }
     }
 }
