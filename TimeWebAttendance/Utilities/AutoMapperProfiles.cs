@@ -11,6 +11,8 @@ namespace TimeWebAttendanceUsers.Utilities
         {
             CreateMap<Usuario, UsuarioDTO>().ReverseMap();
             CreateMap<Usuario, UsuarioCDTO>().ReverseMap();
+            CreateMap<Usuario, UsuarioPDTO>().ReverseMap();
+
         }
     }
 }

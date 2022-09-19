@@ -10,7 +10,7 @@ namespace TimeWebAttendanceUsers.Models.Repository
         Task<Usuario> UpdateUser(Usuario user);
         Task<Usuario> RemoveUser(Usuario user);
         public Task<bool> Exists(int id);
-
+        Task Save();
 
     }
 }

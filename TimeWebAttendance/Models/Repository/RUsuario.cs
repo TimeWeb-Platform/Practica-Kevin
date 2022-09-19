@@ -49,5 +49,10 @@ namespace TimeWebAttendanceUsers.Models.Repository
         {
             return await context.Usuario.AnyAsync(x => x.Id == id);
         }
+
+        public async Task Save()
+        {
+            await context.SaveChangesAsync();
+        }
     }
 }

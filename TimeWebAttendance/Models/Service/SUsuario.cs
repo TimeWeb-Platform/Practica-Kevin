@@ -44,5 +44,9 @@ namespace TimeWebAttendanceUsers.Models.Service
             return userRepo.Exists(id);
         }
 
+        public async Task Save()
+        {
+            await userRepo.Save();
+        }
     }
 }

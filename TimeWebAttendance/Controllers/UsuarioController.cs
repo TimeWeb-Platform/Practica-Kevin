@@ -13,9 +13,9 @@ namespace TimeWebAttendanceUsers.Controllers
     public class UsuarioController : ControllerBase
     {
         private readonly ISUsuario context;
-        private readonly Mapper mapper;
+        private readonly IMapper mapper;
 
-        public UsuarioController(ISUsuario context, Mapper mapper) 
+        public UsuarioController(ISUsuario context, IMapper mapper) 
         {
             this.context = context;
             this.mapper = mapper;
@@ -53,26 +53,24 @@ namespace TimeWebAttendanceUsers.Controllers
             return Ok();
         }
         //PATCH
-        [HttpPatch]
-        public async Task<ActionResult> Patch([FromBody] JsonPatchDocument<UsuarioPDTO> modUser, int id)
+        [HttpPatch("{id:int}")]
+        public async Task<ActionResult> Patch(int id, [FromBody] JsonPatchDocument<UsuarioPDTO> patchDoc)
         {
-            if (modUser == null) { return BadRequest("se esperaba actor Patch"); }
+            if (patchDoc == null) { return BadRequest("Patch Document null"); }
             var user = await context.GetUserById(id);
             if (user == null) { return NotFound(); }
 
-            var userdb = mapper.Map<UsuarioPDTO>(user);
+            var userToPatch = mapper.Map<UsuarioPDTO>(user);
 
-            modUser.ApplyTo(userdb, ModelState);
+            patchDoc.ApplyTo(userToPatch);
 
-            var validoactor = TryValidateModel(mapActor);
+            var validoactor = TryValidateModel(userToPatch);
             if (!validoactor) { return BadRequest(ModelState); }
 
-            mapper.Map(mapActor, actordb);
-            //////
-            var result = await context.SaveChangesAsync();
-            if (result > 0) { return Ok(); }
-            //////
-            return BadRequest("no se lograron editar los datos");
+            mapper.Map(userToPatch, user);
+            await context.Save();
+
+            return NoContent();
 
 
         }
@@ -82,7 +80,7 @@ namespace TimeWebAttendanceUsers.Controllers
         {
             if (!context.Exists(id).Result) return NotFound();
             var user = context.GetUserById(id).Result;
-            await context.UpdateUser(user);
+            await context.RemoveUser(user);
             return Ok();
         }
     }
