@@ -22,20 +22,27 @@ namespace TimeWebAttendanceUsers.Models.Service
             return await userRepo.GetUserById(id);  
         }
 
-        public Task<Usuario> InsertUser(Usuario user)
+        public async Task<Usuario> InsertUser(Usuario user)
         {
-            return userRepo.InsertUser(user);
+            return await userRepo.InsertUser(user);
         }
 
-        public void RemoveUser(int id)
+        public async Task RemoveUser(Usuario user)
         {
 
-            throw new NotImplementedException();
+            await userRepo.RemoveUser(user);
         }
 
-        public void UpdateUser(int id)
+        public async Task UpdateUser(Usuario user)
         {
-            throw new NotImplementedException();
+
+            await userRepo.UpdateUser(user);
         }
+
+        public Task<bool> Exists(int id)
+        {
+            return userRepo.Exists(id);
+        }
+
     }
 }

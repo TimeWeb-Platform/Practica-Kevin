@@ -7,7 +7,8 @@ namespace TimeWebAttendanceUsers.Models.Service
         Task<List<Usuario>> GetUser();
         Task<Usuario?> GetUserById(int id);
         Task<Usuario> InsertUser(Usuario user);
-        void UpdateUser(int id);
-        void RemoveUser(int id);
+        Task UpdateUser(Usuario user);
+        Task RemoveUser(Usuario user);
+        public Task<bool> Exists(int id);
     }
 }
