@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeWebAttendanceUsers", "TimeWebAttendance\TimeWebAttendanceUsers.csproj", "{682B1DB0-34D5-4244-8658-64A2DFCEC12D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeWebAttendanceUsers", "TimeWebAttendance\TimeWebAttendanceUsers.csproj", "{682B1DB0-34D5-4244-8658-64A2DFCEC12D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Users", "Users", "{15E5764E-2533-41BD-8907-476000BE4A0E}"
 EndProject
@@ -11,7 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Events", "Events", "{C15C4C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Assist", "Assist", "{0C4F014E-8587-4CB5-88C3-98D5333863AB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeWebAttendanceUsers.Tests", "TimeWebAttendanceUsers.Tests\TimeWebAttendanceUsers.Tests.csproj", "{53E73C17-13F7-46A8-8AC2-1F1CEFA065C5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TimeWebAttendanceUsers.Tests", "TimeWebAttendanceUsers.Tests\TimeWebAttendanceUsers.Tests.csproj", "{53E73C17-13F7-46A8-8AC2-1F1CEFA065C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeWebAttendanceEvents", "TimeWebAttendanceEvents\TimeWebAttendanceEvents.csproj", "{32971431-25E3-4EDD-9A05-3447B28CBBD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TimeWebAttendanceEvents.Tests", "TimeWebAttendanceEvents.Tests\TimeWebAttendanceEvents.Tests.csproj", "{6AF8DB91-5239-42C5-9CBF-ED0C388D0B4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{53E73C17-13F7-46A8-8AC2-1F1CEFA065C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53E73C17-13F7-46A8-8AC2-1F1CEFA065C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53E73C17-13F7-46A8-8AC2-1F1CEFA065C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{32971431-25E3-4EDD-9A05-3447B28CBBD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{32971431-25E3-4EDD-9A05-3447B28CBBD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{32971431-25E3-4EDD-9A05-3447B28CBBD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{32971431-25E3-4EDD-9A05-3447B28CBBD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AF8DB91-5239-42C5-9CBF-ED0C388D0B4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AF8DB91-5239-42C5-9CBF-ED0C388D0B4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AF8DB91-5239-42C5-9CBF-ED0C388D0B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AF8DB91-5239-42C5-9CBF-ED0C388D0B4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,6 +46,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{682B1DB0-34D5-4244-8658-64A2DFCEC12D} = {15E5764E-2533-41BD-8907-476000BE4A0E}
 		{53E73C17-13F7-46A8-8AC2-1F1CEFA065C5} = {15E5764E-2533-41BD-8907-476000BE4A0E}
+		{32971431-25E3-4EDD-9A05-3447B28CBBD4} = {C15C4C6B-DC3A-461A-A4FF-70EB5C8137D1}
+		{6AF8DB91-5239-42C5-9CBF-ED0C388D0B4E} = {C15C4C6B-DC3A-461A-A4FF-70EB5C8137D1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {096DBF87-960F-4F9A-B4EA-513C473EBD5E}
