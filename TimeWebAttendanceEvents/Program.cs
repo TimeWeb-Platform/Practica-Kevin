@@ -1,3 +1,7 @@
+using Microsoft.EntityFrameworkCore;
+using TimeWebAttendanceEvents;
+using TimeWebAttendanceEvents.Infrastructure.Repository;
+using TimeWebAttendanceEvents.Infrastructure.Service;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -9,8 +13,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 });
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddScoped<IRUsuario, RUsuario>();
-builder.Services.AddScoped<ISUsuario, SUsuario>();
+builder.Services.AddScoped<IEventosRepository, EventosRepository>();
+builder.Services.AddScoped<IEventosService, EventosService>();
 //AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddControllers().AddNewtonsoftJson();

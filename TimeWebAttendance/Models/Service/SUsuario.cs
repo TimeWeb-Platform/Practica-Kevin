@@ -19,7 +19,8 @@ namespace TimeWebAttendanceUsers.Models.Service
 
         public async Task<Usuario?> GetUserById(int id)
         {
-            return await userRepo.GetUserById(id);  
+            var user = await userRepo.GetUserById(id);
+            return user;
         }
 
         public async Task<Usuario> InsertUser(Usuario user)

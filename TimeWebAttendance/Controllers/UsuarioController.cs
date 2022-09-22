@@ -31,7 +31,10 @@ namespace TimeWebAttendanceUsers.Controllers
         [HttpGet("{id}",Name = "getUser")]
         public async Task<ActionResult> Get(int id)
         {
-            return Ok(await context.GetUserById(id));
+            var user = await context.GetUserById(id);
+            if (user == null)
+                return NotFound();
+            return Ok(user);
         }
         #endregion
         //POST
