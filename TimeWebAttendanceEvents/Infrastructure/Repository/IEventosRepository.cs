@@ -6,6 +6,7 @@ namespace TimeWebAttendanceEvents.Infrastructure.Repository
     {
         Task<List<Evento>> GetEvent();
         Task<Evento?> GetEventById(int id);
+        Task<List<Evento?>> GetEventByUserId(int UsuarioId);
         Task<Evento> InsertEvent(Evento evento);
     }
 }

@@ -21,6 +21,10 @@ namespace TimeWebAttendanceEvents.Infrastructure.Service
         {
             return repository.GetEventById(id);
         }
+        public Task<List<Evento?>> GetEventByUserId(int UsuarioId)
+        {
+            return repository.GetEventByUserId(UsuarioId);
+        }
 
         public Task<Evento> InsertEvent(Evento evento)
         {

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using TimeWebAttendanceEvaluation.Model;
+using Microsoft.EntityFrameworkCore;
 namespace TimeWebAttendanceEvaluation
 {
     public class ApplicationDbContext : DbContext
@@ -11,5 +12,7 @@ namespace TimeWebAttendanceEvaluation
         {
             base.OnModelCreating(modelBuilder);
         }
+
+        DbSet<Attendance> Attendance { get; set; }
     }
 }
