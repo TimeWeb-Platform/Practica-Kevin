@@ -3,10 +3,11 @@ using AutoMapper;
 using TimeWebAttendanceEvents.Infrastructure.Service;
 using TimeWebAttendanceEvents.DTO;
 using TimeWebAttendanceEvents.Model;
+using System.Net;
 
 namespace TimeWebAttendanceEvents.Controllers
 {
-    [Route("api/usuario")]
+    [Route("api/evento")]
     [ApiController]
     public class EventoController : ControllerBase
     {
@@ -33,15 +34,19 @@ namespace TimeWebAttendanceEvents.Controllers
             return Ok(user);
         }
         //POST
-        //[HttpPost]
-        //public async Task<ActionResult> Post(EventoCDTO newUser)
-        //{
-        //    //request a Usuario
-
-        //    if(request == null)
-        //        return BadRequest();
-        //    await context.InsertEvent(mapper.Map<Evento>(newUser));
-        //    return Ok();
-        //}
+        [HttpPost]
+        public async Task<ActionResult> Post(EventoCDTO newEventdto)
+        {
+            //request a Usuario
+            HttpStatusCode request = context.RequestUsuarioId(newEventdto.UsuarioId);
+            if (request.Equals(HttpStatusCode.NotFound))
+                return BadRequest();
+            //Fecha del registro
+            var newEvent = mapper.Map<Evento>(newEventdto);
+            newEvent.FechaAlta = DateTime.Now;
+            //Save into DB
+            await context.InsertEvent(newEvent);
+            return NoContent();
+        }
     }
 }

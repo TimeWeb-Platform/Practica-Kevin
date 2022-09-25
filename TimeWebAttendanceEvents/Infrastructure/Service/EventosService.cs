@@ -1,5 +1,7 @@
 ﻿using TimeWebAttendanceEvents.Infrastructure.Repository;
 using TimeWebAttendanceEvents.Model;
+using RestSharp;
+using System.Net;
 
 namespace TimeWebAttendanceEvents.Infrastructure.Service
 {
@@ -23,6 +25,17 @@ namespace TimeWebAttendanceEvents.Infrastructure.Service
         public Task<Evento> InsertEvent(Evento evento)
         {
             return repository.InsertEvent(evento);
+        }
+        public HttpStatusCode RequestUsuarioId(int id)
+        {
+            var options = new RestClientOptions("https://localhost:7084")
+            {
+                ThrowOnAnyError = true
+            };
+            var client = new RestClient(options);
+            var request = new RestRequest($"/api/usuario/{id}");
+            var response = client.Execute(request);
+            return response.StatusCode;
         }
     }
 }

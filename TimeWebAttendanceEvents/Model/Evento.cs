@@ -4,20 +4,9 @@ namespace TimeWebAttendanceEvents.Model
 {
     public class Evento
     {
-        public Evento(int EventoId, int UsuarioId, DateTime FechaAlta,
-            double? Latitud, double? Longitud, int Origen)
-        {
-            this.EventoId = EventoId;
-            this.UsuarioId = UsuarioId;
-            this.FechaAlta = FechaAlta;
-            this.Latitud = Latitud;
-            this.Longitud = Longitud;
-            this.Origen = Origen;
-
-        }
         [Required]
         [Key]
-        public int EventoId { get; set; }
+        public int Id { get; set; }
         [Required]
         public int UsuarioId { get; set; }
         [Required]

@@ -18,7 +18,7 @@ namespace TimeWebAttendanceEvents.Infrastructure.Repository
 
         public async Task<Evento?> GetEventById(int id)
         {
-            return await context.Evento.FirstOrDefaultAsync(x => x.EventoId == id);
+            return await context.Evento.FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public async Task<Evento> InsertEvent(Evento evento)
