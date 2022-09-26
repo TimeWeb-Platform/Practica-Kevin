@@ -33,16 +33,16 @@ namespace TimeWebAttendanceEvents.Controllers
                 return NotFound();
             return Ok(user);
         }
-        [HttpGet("userid/{id}")]
-        public async Task<ActionResult> GetEventsByUser(int id)
-        {
-            var userEvents = await context.GetEventByUserId(id);
-            if (userEvents.Count == 0)
-            {
-                return NoContent();
-            }
-            return Ok(userEvents);
-        }
+        //[HttpGet("userid/{id}")]
+        //public async Task<ActionResult> GetEventsByUser(int id, [FromBody] string date)
+        //{
+        //    var userEvents = await context.GetEventByUserId(id, date);
+        //    if (userEvents.Count == 0)
+        //    {
+        //        return NoContent();
+        //    }
+        //    return Ok(userEvents);
+        //}
         //POST
         [HttpPost]
         public async Task<ActionResult> Post(EventoCDTO newEventdto)

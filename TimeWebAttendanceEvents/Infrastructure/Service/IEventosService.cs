@@ -6,7 +6,7 @@ namespace TimeWebAttendanceEvents.Infrastructure.Service
     {
         Task<List<Evento>> GetEvent();
         Task<Evento?> GetEventById(int id);
-        Task<List<Evento?>> GetEventByUserId(int UsuarioId);
+        Task<List<Evento>?> GetEventByUserId(int UsuarioId, string date);
         Task<Evento> InsertEvent(Evento evento);
         HttpStatusCode RequestUsuarioId(int id);
     }
