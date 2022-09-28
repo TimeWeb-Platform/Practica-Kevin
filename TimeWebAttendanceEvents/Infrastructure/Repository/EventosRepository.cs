@@ -25,13 +25,13 @@ namespace TimeWebAttendanceEvents.Infrastructure.Repository
             if (date == "")
             {
                 return await context.Evento.Where(x => x.UsuarioId == UsuarioId &&
-                    x.FechaAlta >= DateTime.Now.AddDays(-10).Date && x.FechaAlta >= DateTime.Now.Date).
+                    x.FechaAlta.Date >= DateTime.Now.AddDays(-10).Date && x.FechaAlta.Date <= DateTime.Now.Date).
                     OrderBy(x => x.FechaAlta).ToListAsync();
             }
-            DateTime dateTime = DateTime.Parse(date);
+            DateTime endDate = DateTime.Parse(date);
             return await context.Evento.Where(x => x.UsuarioId == UsuarioId && 
-            x.FechaAlta >= dateTime.AddDays(-10) && x.FechaAlta >= dateTime).
-            OrderBy(x => x.FechaAlta).ToListAsync();
+            (x.FechaAlta.Date >= endDate.AddDays(-10).Date && x.FechaAlta.Date <= endDate.Date)
+            ).OrderBy(x => x.FechaAlta).ToListAsync();
         }
         public async Task<Evento> InsertEvent(Evento evento)
         {

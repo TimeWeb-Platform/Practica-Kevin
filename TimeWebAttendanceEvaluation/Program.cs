@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using TimeWebAttendanceEvaluation;
 using TimeWebAttendanceEvaluation.Infrastructure.Repository;
 using TimeWebAttendanceEvaluation.Infrastructure.Service;
 
@@ -7,10 +8,10 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-//builder.Services.AddDbContext<ApplicationDbContext>(options =>
-//{
-//    options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection"));
-//});
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection"));
+});
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddScoped<IAttendanceRepository, AttendanceRepository>();

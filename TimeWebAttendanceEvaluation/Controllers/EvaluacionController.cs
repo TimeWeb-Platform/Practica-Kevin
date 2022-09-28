@@ -14,8 +14,12 @@ namespace TimeWebAttendanceEvaluation.Controllers
         {
             this.attendance = attendance;
         }
-
-        [HttpGet("{id:int}")]
+        [HttpGet]
+        public async Task<ActionResult> Get()
+        {
+            return Ok(await attendance.GetAttendance());
+        }
+        [HttpGet("{id:int}/{date}")]
         public async Task<ActionResult> EvaluarUsuario(int id, string date)
         {
             //Request a Evento
@@ -23,9 +27,11 @@ namespace TimeWebAttendanceEvaluation.Controllers
             if (eventos == null)
                 return BadRequest("There are no Events for that User");
             //Request a User
-            var user = attendance.RequestUser(id);
+            int razonSocial = attendance.RequestRazonSocial(id);
+            if (razonSocial == -1)
+                return BadRequest("This User doesnt Exist");
             //Evaluamos
-            return Ok();
+            return Ok(attendance.Evaluate(eventos, razonSocial, date));
         }
     }
 }

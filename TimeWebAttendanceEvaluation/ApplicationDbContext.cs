@@ -12,6 +12,6 @@ namespace TimeWebAttendanceEvaluation
             base.OnModelCreating(modelBuilder);
         }
 
-        DbSet<Attendance> Attendance { get; set; }
+        public DbSet<Attendance> Attendance { get; set; }
     }
 }
